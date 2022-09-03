@@ -1,7 +1,7 @@
 const category = document.getElementById("category");
 const newsContainer = document.getElementById("news-container");
 const ul_class = "navbar-nav me-auto mb-2 mb-lg-0";
-const nc_class = "d-flex mt-5 shadow-lg";
+const nc_class = "d-flex mt-5 shadow-lg s_n";
 window.addEventListener("load", (event) => {
   const url = "https://openapi.programming-hero.com/api/news/categories";
   fetch(url)
@@ -23,6 +23,7 @@ function displayCategory(data) {
 }
 
 function loadNews(id) {
+    newsContainer.innerHTML = '';
   const param = 0 + `${id}`;
   const url = `https://openapi.programming-hero.com/api/news/category/${param}`;
   fetch(url)
@@ -44,30 +45,23 @@ function displayNews(data) {
           />
         </div>
         <div class="p-3">
-          <h2>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            veniam?
-          </h2>
-          <p class="mt-5">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt
-            itaque reiciendis ipsum quibusdam magni, cum dolorem, sint quis,
-            dolores corporis veritatis accusamus possimus iste nam?
-          </p>
+          <h2>${n.title}</h2>
+          <p class="mt-5">${n.details}</p>
           <div class="d-flex justify-content-between">
             <div class="d-flex author">
               <div>
                 <img
-                  src="${n.image_url}"
+                  src="${n.author.img}"
                   alt=""
                   class="a_img"
                 />
               </div>
-              <div class="d-flex author">
+              <div class="author">
                 <p>Author</p>
-                <p><span>Date & Time</span></p>
+                <p><span>${n.author.published_date}</span></p>
               </div>
             </div>
-            <div>eye</div>
+            <div>${n.total_view}</div>
             <div>star</div>
             <div>-></div>
           </div>
