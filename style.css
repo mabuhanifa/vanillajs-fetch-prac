@@ -1,4 +1,17 @@
 .a_img {
-  width: 25px;
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
   border-radius: 50%;
+  margin-right: 15px;
+}
+.author p {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+.n_img {
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
 }
