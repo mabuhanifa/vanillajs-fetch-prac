@@ -1,4 +1,5 @@
 const category = document.getElementById("category");
+const newsContainer = document.getElementById("news-container");
 const ul_class = "navbar-nav me-auto mb-2 mb-lg-0";
 window.addEventListener("load", (event) => {
   const url = "https://openapi.programming-hero.com/api/news/categories";
@@ -17,7 +18,6 @@ function displayCategory(data) {
                 </li>`;
     ul.innerHTML = li;
     category.appendChild(ul);
-    console.log(cat);
   });
 }
 
@@ -27,5 +27,4 @@ function loadNews(id) {
   fetch(url)
     .then((res) => res.json())
     .then((data) => console.log(data));
-  console.log(url);
 }
