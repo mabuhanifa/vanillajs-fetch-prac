@@ -6,8 +6,9 @@ const modal = document.getElementById("modal");
 const blog = document.getElementById("blog");
 const blogContainer = document.getElementById("blogContainer");
 
-const ul_class = "navbar-nav me-auto mb-2 mb-lg-0";
-const nc_class = "d-flex mt-5 shadow-lg s_n";
+const ul_class = "navbar-nav me-auto mb-2 mb-lg-0 u_l";
+const nc_class =
+  "d-flex mt-5 shadow-lg s_n flex-sm-row flex-sm-column flex-lg-row";
 
 window.addEventListener("load", (event) => {
   blogContainer.style.display = "none";
@@ -65,7 +66,7 @@ function displayNews(data) {
           />
         </div>
         <div class="p-3">
-          <h2>${n.title}</h2>
+          <h4>${n.title}</h4>
           <p class="mt-3 details">${n.details}</p>
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center author">
