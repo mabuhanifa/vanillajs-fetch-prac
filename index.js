@@ -4,10 +4,13 @@ const newsContainer = document.getElementById("news-container");
 const items = document.getElementById("items");
 const modal = document.getElementById("modal");
 const blog = document.getElementById("blog");
+const blogContainer = document.getElementById("blogContainer");
 
 const ul_class = "navbar-nav me-auto mb-2 mb-lg-0";
 const nc_class = "d-flex mt-5 shadow-lg s_n";
+
 window.addEventListener("load", (event) => {
+  blogContainer.style.display = "none";
   const url = "https://openapi.programming-hero.com/api/news/categories";
   fetch(url)
     .then((res) => res.json())
@@ -43,6 +46,7 @@ function loadNews(id) {
 
 function displayNews(data) {
   newsContainer.innerHTML = "";
+  blogContainer.style.display = "none";
   modal.innerHTML = "";
 
   items.innerText = `${data.data.length} items found for this category `;
@@ -119,6 +123,7 @@ function displayModal(id) {
 function showModal(n) {
   console.log(n);
   newsContainer.innerHTML = "";
+  blogContainer.style.display = "none";
   items.innerText = "";
   const inner = `
     <div class="m-2">
@@ -162,3 +167,10 @@ function showModal(n) {
     `;
   modal.innerHTML = inner;
 }
+
+blog.addEventListener("click", function (e) {
+  blogContainer.style.display = "block";
+  newsContainer.innerHTML = "";
+  items.innerText = "";
+  modal.innerHTML = "";
+});
