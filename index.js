@@ -1,14 +1,20 @@
+//dom elements
 const category = document.getElementById("category");
 const newsContainer = document.getElementById("news-container");
 const items = document.getElementById("items");
 const modal = document.getElementById("modal");
+const blog = document.getElementById("blog");
+
 const ul_class = "navbar-nav me-auto mb-2 mb-lg-0";
 const nc_class = "d-flex mt-5 shadow-lg s_n";
 window.addEventListener("load", (event) => {
   const url = "https://openapi.programming-hero.com/api/news/categories";
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayCategory(data));
+    .then((data) => displayCategory(data))
+    .catch(function () {
+      console.log("error");
+    });
 });
 
 function displayCategory(data) {
@@ -29,7 +35,10 @@ function loadNews(id) {
   const url = `https://openapi.programming-hero.com/api/news/category/${param}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayNews(data));
+    .then((data) => displayNews(data))
+    .catch(function () {
+      console.log("error");
+    });
 }
 
 function displayNews(data) {
@@ -72,7 +81,9 @@ function displayNews(data) {
                 }</span></p>
               </div>
             </div>
-            <div><i class="fa-regular fa-eye"></i> ${n.total_view?n.total_view: "No Views Available"}</div>
+            <div><i class="fa-regular fa-eye"></i> ${
+              n.total_view ? n.total_view : "No Views Available"
+            }</div>
             <div>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -99,7 +110,10 @@ function displayModal(id) {
   const url = `https://openapi.programming-hero.com/api/news/${id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => showModal(data.data[0]));
+    .then((data) => showModal(data.data[0]))
+    .catch(function () {
+      console.log("error");
+    });
 }
 
 function showModal(n) {
