@@ -5,6 +5,13 @@
   border-radius: 50%;
   margin-right: 15px;
 }
+.af_img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 15px;
+}
 .author p {
   font-size: 12px;
   margin-bottom: 2px;
@@ -17,9 +24,14 @@
 }
 .s_n {
   height: 367px;
+}
+
+.details {
+  height: 190px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.s_o {
-  text-overflow: ellipsis;
+.icon-e {
+  cursor: pointer;
+  font-size: 25px;
 }
