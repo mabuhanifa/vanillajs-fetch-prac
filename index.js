@@ -122,8 +122,7 @@ function displayModal(id) {
 }
 
 function showModal(n) {
-  console.log(n);
-  newsContainer.innerHTML = "";
+  window.scrollTo(0, 250);
   blogContainer.style.display = "none";
   items.innerText = "";
   const inner = `
